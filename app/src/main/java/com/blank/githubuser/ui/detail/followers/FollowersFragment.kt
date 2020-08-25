@@ -39,7 +39,6 @@ class FollowersFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        rvFollowers.isNestedScrollingEnabled = false
 
         adapter.addLoadStateListener(this::manageFollowersState)
         rvFollowers.adapter = adapter.withLoadStateHeaderAndFooter(

@@ -20,7 +20,7 @@ class FollowersViewModel @ViewModelInject constructor(
     private val networkHelper: NetworkHelper
 ) : BaseViewModel() {
     companion object {
-        const val NETWORK_PAGE_SIZE = 15
+        const val NETWORK_PAGE_SIZE = 20
     }
 
     private var currentResult: Flowable<PagingData<User>>? = null
@@ -34,7 +34,9 @@ class FollowersViewModel @ViewModelInject constructor(
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,
                 initialLoadSize = NETWORK_PAGE_SIZE,
-                enablePlaceholders = false
+                prefetchDistance = 5,
+                enablePlaceholders = false,
+                maxSize = 30
             ), pagingSourceFactory = { FollowersSource(githubRepository, networkHelper, username) }
         ).flowable.cachedIn(viewModelScope)
         currentResult = newResult
