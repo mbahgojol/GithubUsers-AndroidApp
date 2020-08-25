@@ -1,0 +1,154 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.3.72"
+    ext.hilt_version = "2.28-alpha"
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    lifecycleVersion = "2.2.0"
+    paging_version = "3.0.0-alpha02"
+    androidxHilt_version = "1.0.0-alpha01"
+    hilt_version = "2.28-alpha"
+    activityKtx = "1.1.0"
+    fragmentKtx = "1.2.5"
+    materialVersion = "1.1.0"
+    glideVersion = "4.11.0"
+    retrofitVersion = "2.6.0"
+    adapterRxVersion = "2.5.0"
+    gsonVersion = "2.6.0"
+    rxjavaVersion = '2.2.7'
+    rxAndroidVersion = '2.1.1'
+    okhttp = "3.12.1"
+    loggingInterceptor = "4.2.1"
+    multiDexVersion = "2.0.1"
+    mockitoKotlinVersion = "1.5.0"
+    junitVersion = '4.12'
+    mockitoVersion = "3.4.0"
+    kotlinVersion = "1.3.72"
+    testingKtxVersion = "1.1.2"
+    testingKtxVersion = "1.1.2"
+    expressoCoreVersion = "3.2.0"
+    testRunnerVersion = "1.2.0"
+    testRulesVersion = "1.2.0"
+    extJunitVersion = "1.1.1"
+    mockitoTestingAndroidVersion = "2.9.0"
+    archCoreTestingVersion = "2.1.0"
+    jupiterEngineVersion = "5.5.0"
+
+
+    daggerHiltDependencies = [
+            "hilt"        : "com.google.dagger:hilt-android:$hilt_version",
+            "hiltAndroidx": "androidx.hilt:hilt-lifecycle-viewmodel:$androidxHilt_version"
+    ].values()
+
+    daggerHiltKaptDependencies = [
+            "hiltCompiler"        : "com.google.dagger:hilt-android-compiler:$hilt_version",
+            "hiltAndroidxCompiler": "androidx.hilt:hilt-compiler:$androidxHilt_version"
+    ].values()
+
+    glideKaptDependencies = [
+            compiler: "com.github.bumptech.glide:compiler:4.11.0", // kapt
+    ].values()
+
+    uiAndroidx = [
+            "fragmentKtx": "androidx.fragment:fragment-ktx:$fragmentKtx",
+            "activityKtx": "androidx.activity:activity-ktx:$activityKtx"
+    ].values()
+
+    uiDependencies = [
+            multidex    : "com.android.support:multidex:$multiDexVersion",
+            material    : "com.google.android.material:material:$materialVersion",
+            recyclerview: "androidx.recyclerview:recyclerview:1.1.0"
+    ].values()
+
+    glideDependencies = [
+            glide      : "com.github.bumptech.glide:glide:4.11.0",
+            integration: "com.github.bumptech.glide:okhttp3-integration:1.4.0"
+    ]
+
+    retrofitDependencies = [
+            retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitAdapter         : "com.squareup.retrofit2:adapter-rxjava2:$adapterRxVersion",
+            retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:$gsonVersion",
+            retrofitConverterScalars: "com.squareup.retrofit2:converter-scalars:2.3.0"
+    ].values()
+
+    rxJavaAndroidDependencies = [
+            rxJava   : "io.reactivex.rxjava2:rxjava:$rxjavaVersion",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    ].values()
+
+    okHttpDependencies = [
+            okhttp      : "com.squareup.okhttp3:okhttp:$okhttp",
+            okhttpLoging: "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor"
+    ].values()
+
+    navigationDependencies = [
+            runtime : "androidx.navigation:navigation-runtime-ktx:2.3.0",
+            fragment: "androidx.navigation:navigation-fragment-ktx:2.3.0",
+            ui      : "androidx.navigation:navigation-ui-ktx:2.3.0"
+    ].values()
+
+    lifecycleDependencies = [
+            extensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
+            viewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha01",
+            reactive  : "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
+    ].values()
+
+    paging3Dependencies = [
+            runtime: "androidx.paging:paging-runtime:$paging_version",
+            rxjava2: "androidx.paging:paging-rxjava2:$paging_version"
+    ].values()
+
+    mockitoDependencies = [
+            mockito: "com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlinVersion",
+    ]
+
+    pagingTestImplementation = [
+            pagingTest: "androidx.paging:paging-common:$paging_version"
+    ]
+
+    testDependencies = [
+            junit        : "junit:junit:${junitVersion}",
+            mockito      : "org.mockito:mockito-core:$mockitoVersion",
+            kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+            testingKtx   : "com.jraska.livedata:testing-ktx:$testingKtxVersion",
+    ]
+    androidTestDependencies = [
+            expressoCore   : "androidx.test.espresso:espresso-core:$expressoCoreVersion",
+            testRunner     : "androidx.test:runner:$testRunnerVersion",
+            testRules      : "androidx.test:rules:$testRulesVersion",
+            extJunit       : "androidx.test.ext:junit:$extJunitVersion",
+            mockitoTesting : "org.mockito:mockito-android:$mockitoTestingAndroidVersion",
+            archCoreTesting: "androidx.arch.core:core-testing:$archCoreTestingVersion",
+    ]
+
+    testRuntimeDependencies = [
+            jupiteEngine: "org.junit.jupiter:junit-jupiter-engine:$jupiterEngineVersion",
+    ]
+}
