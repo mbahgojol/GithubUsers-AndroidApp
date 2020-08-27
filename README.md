@@ -1,6 +1,13 @@
 # GithubUsers-AndroidApp
 GithubUser Android Application
 
+## Screenshots
+
+<p align="center">
+  <img src="ss/main.png" width="270" alt="Home">
+  <img src="ss/detail.png" width="270" alt="Detail">
+</p>
+
 This project using the Architecture Components:
 - Room
 - Lifecycle-aware components
