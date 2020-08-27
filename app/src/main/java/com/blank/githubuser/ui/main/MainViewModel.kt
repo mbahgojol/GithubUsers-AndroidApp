@@ -33,8 +33,7 @@ class MainViewModel @ViewModelInject constructor(
                 pageSize = NETWORK_PAGE_SIZE,
                 initialLoadSize = NETWORK_PAGE_SIZE,
                 prefetchDistance = 5,
-                enablePlaceholders = false,
-                maxSize = 30
+                enablePlaceholders = false
             ), pagingSourceFactory = { mainSource }
         ).flowable.cachedIn(viewModelScope)
         currentResultUsers = newResult

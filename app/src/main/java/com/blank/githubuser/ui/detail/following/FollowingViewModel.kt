@@ -35,8 +35,7 @@ class FollowingViewModel @ViewModelInject constructor(
                 pageSize = NETWORK_PAGE_SIZE,
                 initialLoadSize = NETWORK_PAGE_SIZE,
                 prefetchDistance = 5,
-                enablePlaceholders = false,
-                maxSize = 30
+                enablePlaceholders = false
             ), pagingSourceFactory = { FollowingSource(githubRepository, networkHelper, username) }
         ).flowable.cachedIn(viewModelScope)
         currentResult = newResult
