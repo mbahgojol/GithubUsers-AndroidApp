@@ -27,14 +27,14 @@ This project using the Architecture Components:
 - [x] [Retrofit](https://square.github.io/retrofit/)
 - [ ] [Koin](https://insert-koin.io/)
 - [ ] [Ktlint](https://ktlint.github.io/)
-- [x] [RxAndroid]
-- [x] [RxJava]
-- [x] [Dagger Hilt]
-- [x] [Android KTX]
-- [x] [JUnit]
-- [x] [Mockito]
+- [x] RxAndroid
+- [x] RxJava
+- [x] Dagger Hilt
+- [x] Android KTX
+- [x] JUnit
+- [x] Mockito
 - [x] [MotionLayout](https://developer.android.com/training/constraint-layout/motionlayout)
-- [x] [Transition Animations]
+- [x] Transition Animations
 
 ## Features
 
