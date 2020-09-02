@@ -59,6 +59,7 @@ ext {
     mockitoTestingAndroidVersion = "2.9.0"
     archCoreTestingVersion = "2.1.0"
     jupiterEngineVersion = "5.5.0"
+    roomVersion = "2.2.5"
 
 
     daggerHiltDependencies = [
@@ -151,4 +152,14 @@ ext {
     testRuntimeDependencies = [
             jupiteEngine: "org.junit.jupiter:junit-jupiter-engine:$jupiterEngineVersion",
     ]
+
+    roomDependencies = [
+            room_rxjava : "androidx.room:room-rxjava2:$roomVersion",
+            room_runtime: "androidx.room:room-runtime:$roomVersion",
+            room_ktx    : "androidx.room:room-ktx:$roomVersion"
+    ].values()
+
+    roomKaptDependencies = [
+            room_compiler: "androidx.room:room-compiler:$roomVersion", // use kapt
+    ].values()
 }

@@ -17,12 +17,10 @@
         <com.blank.githubuser.widget.NonScrollRecyclerView
             android:id="@+id/rvFollowers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layoutAnimation="@anim/layout_animation_fall_down"
-            app:layoutManagerOrientation="vertical"
-            app:layoutManagerReverse="false"
-            app:layoutManagerType="linear"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_user" />
 

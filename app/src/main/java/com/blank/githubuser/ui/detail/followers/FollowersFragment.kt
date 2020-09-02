@@ -71,23 +71,23 @@ class FollowersFragment : BaseFragment() {
         val notLoading = loadState.source.refresh as? LoadState.NotLoading
         val isendOfPaginationReached = notLoading?.endOfPaginationReached ?: true
         if (isLoading && errorState == null) {
-            lyt_no_connection.hide()
+            lyt_no_connection?.hide()
         } else if (!isendOfPaginationReached) {
-            rvFollowers.show()
+            rvFollowers?.show()
         }
 
         if (errorState != null) {
             val msgError = errorState.error.message
             if (adapter.itemCount <= 0) {
                 if (msgError == ERROR_NOCONNECTION) {
-                    lyt_no_connection.show()
-                    lyt_no_connection.content.text =
+                    lyt_no_connection?.show()
+                    lyt_no_connection?.content?.text =
                         resources.getString(R.string.no_internet_conten)
-                    rvFollowers.hide()
+                    rvFollowers?.hide()
                 } else {
-                    lyt_no_connection.show()
-                    lyt_no_connection.content.text = msgError
-                    rvFollowers.hide()
+                    lyt_no_connection?.show()
+                    lyt_no_connection?.content?.text = msgError
+                    rvFollowers?.hide()
                 }
             }
 

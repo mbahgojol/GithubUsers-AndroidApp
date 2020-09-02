@@ -2,9 +2,7 @@ package com.blank.githubuser.ui
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.blank.githubuser.R
-import com.blank.githubuser.utils.SEARCH_USERS
-import com.blank.githubuser.utils.visibilitySearch
+import com.blank.githubuser.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,22 +30,25 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.hostFragment)
         setupActionBarWithNavController(navController)
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.detailFragment -> {
-                    menu?.visibilitySearch(false)
+                    menu?.showSetting()
+                    menu?.hideSearch()
                 }
                 R.id.searchFragment -> {
-                    menu?.visibilitySearch(true)
-                    navController.getBackStackEntry(R.id.searchFragment)
-                        .savedStateHandle
-                        .get<String>(SEARCH_USERS).let { username ->
-                            searchView?.setQuery(username, false)
-                        }
+                    menu?.showSetting()
+                    menu?.showSearch()
+                    observerSearchUsername()
                 }
                 R.id.mainFragment -> {
-                    menu?.visibilitySearch(true)
+                    menu?.showSetting()
+                    menu?.showSearch()
                     searchView?.onActionViewCollapsed()
+                }
+                R.id.settingsFragment -> {
+                    menu?.hideSearch()
+                    menu?.hideSetting()
                 }
             }
         }
@@ -64,23 +64,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun observerSearchUsername() {
+        navController.getBackStackEntry(R.id.searchFragment)
+            .savedStateHandle
+            .get<String>(SEARCH_USERS).let { username ->
+                searchView?.setQuery(username, false)
+            }
+    }
+
     private fun settingSearchAfterConfiChange(menu: Menu) {
         when (navController.currentDestination?.id) {
             R.id.detailFragment -> {
-                menu.visibilitySearch(false)
+                menu.hideSearch()
             }
             R.id.searchFragment -> {
-                menu.visibilitySearch(true)
+                menu.showSearch()
                 searchView?.onActionViewExpanded()
-                navController.getBackStackEntry(R.id.searchFragment)
-                    .savedStateHandle
-                    .get<String>(SEARCH_USERS).let { username ->
-                        searchView?.setQuery(username, false)
-                    }
+                observerSearchUsername()
             }
             R.id.mainFragment -> {
-                menu.visibilitySearch(true)
+                menu.showSearch()
                 searchView?.onActionViewCollapsed()
+            }
+            R.id.settingsFragment -> {
+                menu.hideSearch()
+                menu.hideSetting()
             }
         }
     }
@@ -118,10 +126,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu2 -> {
-                Intent(Settings.ACTION_LOCALE_SETTINGS).apply {
-                    startActivity(this)
-                }
+            R.id.settingsFragment -> {
+                navController.navigate(R.id.settingsFragment)
             }
         }
         return super.onOptionsItemSelected(item)

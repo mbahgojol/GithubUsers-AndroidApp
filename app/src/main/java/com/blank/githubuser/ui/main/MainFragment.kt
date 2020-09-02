@@ -53,7 +53,6 @@ class MainFragment : BaseFragment() {
 
         observe(viewModel.resultUsers) {
             adapter.submitData(lifecycle, it)
-            rvMain.scheduleLayoutAnimation()
         }
         viewModel.getUsers()
 

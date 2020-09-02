@@ -55,8 +55,10 @@ dependencies {
     implementation "androidx.transition:transition:1.4.0-beta01"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "com.mlsdev.animatedrv:library:1.0.1"
 
+    implementation roomDependencies
+    implementation 'androidx.preference:preference:1.1.1'
+    kapt roomKaptDependencies
     implementation navigationDependencies
     implementation lifecycleDependencies
     implementation paging3Dependencies

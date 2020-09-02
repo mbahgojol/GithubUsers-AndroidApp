@@ -11,6 +11,8 @@
     </group>
 
     <item
-        android:id="@+id/menu2"
-        android:title="@string/changeLanguage" />
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/setting"
+        app:showAsAction="always" />
 </menu>

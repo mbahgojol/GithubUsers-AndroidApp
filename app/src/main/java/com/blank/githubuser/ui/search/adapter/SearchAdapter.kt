@@ -24,10 +24,6 @@ class SearchAdapter @Inject constructor() :
         this.listener = listener
     }
 
-    fun test(vararg test: String) {
-
-    }
-
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         getItem(position)?.let { user ->
             holder.bind(user)

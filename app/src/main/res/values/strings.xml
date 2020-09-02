@@ -25,4 +25,20 @@
     <string name="no_following">Has not Following</string>
     <string name="no_followers">Has not Followers</string>
     <string name="try_a_more_general_keyword">Try a more general keyword</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <string name="notification_header">Notification</string>
+    <string name="notification_title">Reminder</string>
+    <string name="notification_summary_off">Daily reminder untuk kembali ke aplikasi yang berjalan pada pukul 09.00 AM</string>
+    <string name="notification_summary_on">Daily reminder aktif pada pukul 09.00 AM</string>
+    <string name="language_header">Language</string>
+    <string name="language_key">language</string>
+    <string name="reminder_key">reminder</string>
+    <string name="setting">Setting</string>
 </resources>

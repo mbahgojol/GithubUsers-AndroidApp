@@ -28,6 +28,18 @@ fun View.show(): View = apply {
     this.visibility = View.VISIBLE
 }
 
-fun Menu.visibilitySearch(isvisible: Boolean) {
-    setGroupVisible(R.id.groupSearch, isvisible)
+fun Menu.hideSearch() {
+    setGroupVisible(R.id.groupSearch, false)
+}
+
+fun Menu.showSearch() {
+    setGroupVisible(R.id.groupSearch, true)
+}
+
+fun Menu.showSetting() {
+    findItem(R.id.settingsFragment).isVisible = true
+}
+
+fun Menu.hideSetting() {
+    findItem(R.id.settingsFragment).isVisible = false
 }

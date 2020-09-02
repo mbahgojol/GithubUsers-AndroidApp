@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <com.mlsdev.animatedrv.AnimatedRecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMain"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layoutAnimation="@anim/layout_animation_from_right"
         android:scrollbars="vertical"
-        app:layoutManagerOrientation="vertical"
-        app:layoutManagerReverse="false"
-        app:layoutManagerType="linear"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

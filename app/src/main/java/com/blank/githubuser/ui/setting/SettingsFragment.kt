@@ -1,0 +1,75 @@
+package com.blank.githubuser.ui.setting
+
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
+import androidx.preference.*
+import com.blank.githubuser.R
+
+class SettingsFragment : PreferenceFragmentCompat(),
+    SharedPreferences.OnSharedPreferenceChangeListener {
+
+    companion object {
+        fun sharedPreferences(context: Context) =
+            PreferenceManager.getDefaultSharedPreferences(context)
+    }
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        val context = preferenceManager.context
+        val screen = preferenceManager.createPreferenceScreen(context)
+
+        val language = Preference(context)
+            .apply {
+                key = getString(R.string.language_key)
+                title = getString(R.string.changeLanguage)
+                intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            }
+
+        val languageCategory = PreferenceCategory(context)
+            .apply {
+                key = getString(R.string.language_header)
+                title = getString(R.string.language_header)
+            }
+        screen.addPreference(languageCategory)
+        languageCategory.addPreference(language)
+
+        val reminder = SwitchPreferenceCompat(context)
+            .apply {
+                key = getString(R.string.reminder_key)
+                summaryOff = getString(R.string.notification_summary_off)
+                summaryOn = getString(R.string.notification_summary_on)
+                title = getString(R.string.notification_title)
+            }
+
+        val notificationCategory = PreferenceCategory(context)
+            .apply {
+                title = getString(R.string.notification_header)
+            }
+        screen.addPreference(notificationCategory)
+        notificationCategory.addPreference(reminder)
+
+        preferenceScreen = screen
+    }
+
+    override fun onResume() {
+        super.onResume()
+        preferenceManager.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        when (key) {
+            resources.getString(R.string.reminder_key) -> {
+                Log.d("Reminder", sharedPreferences?.getBoolean("reminder", false).toString())
+            }
+        }
+    }
+
+}
