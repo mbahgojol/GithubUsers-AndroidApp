@@ -26,4 +26,10 @@
     <string name="no_following">Tidak memiliki Following</string>
     <string name="no_followers">Tidak memiliki Followers</string>
     <string name="try_a_more_general_keyword">Coba kata kunci yang lebih umum</string>
+    <string name="favorite">Favorite</string>
+    <string name="saveSuccess">User telah ditambahkan kedalam favorite</string>
+    <string name="delUserMsg">User telah dihapus dari favorite</string>
+    <string name="language_title">Select Language</string>
+    <string name="delete">DELETE</string>
+    <string name="undo">UNDO</string>
 </resources>

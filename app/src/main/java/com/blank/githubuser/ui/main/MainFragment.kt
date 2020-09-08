@@ -37,6 +37,7 @@ class MainFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         adapter.addLoadStateListener(this::manageStateUser)
+        rvMain.setHasFixedSize(true)
         rvMain.adapter = adapter.withLoadStateHeaderAndFooter(
             footer = MainLoadStateAdapter(adapter::retry),
             header = MainLoadStateAdapter(adapter::retry)

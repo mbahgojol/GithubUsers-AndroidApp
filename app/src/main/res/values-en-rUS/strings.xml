@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favorite">Favorite</string>
+    <string name="saveSuccess">User telah ditambahkan kedalam favorite</string>
+    <string name="delUserMsg">User telah dihapus dari favorite</string>
+    <string name="language_title">Select Language</string>
+    <string name="delete">DELETE</string>
+    <string name="undo">UNDO</string>
+</resources>

@@ -2,6 +2,7 @@ package com.blank.githubuser.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "User")
@@ -12,6 +13,7 @@ data class User(
 
     @ColumnInfo(name = "id")
     @field:SerializedName("id")
+    @PrimaryKey(autoGenerate = false)
     val id: Int? = null,
 
     @ColumnInfo(name = "public_repos")

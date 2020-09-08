@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.detailFragment -> {
                     menu?.showSetting()
                     menu?.hideSearch()
+                    menu?.hideFavorite()
                 }
                 R.id.searchFragment -> {
                     menu?.showSetting()
@@ -49,6 +50,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.settingsFragment -> {
                     menu?.hideSearch()
                     menu?.hideSetting()
+                }
+                R.id.favoriteFragment -> {
+                    menu?.showSearch()
+                    menu?.showSetting()
+                    menu?.hideFavorite()
                 }
             }
         }
@@ -76,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         when (navController.currentDestination?.id) {
             R.id.detailFragment -> {
                 menu.hideSearch()
+                menu.hideFavorite()
             }
             R.id.searchFragment -> {
                 menu.showSearch()
@@ -89,6 +96,9 @@ class MainActivity : AppCompatActivity() {
             R.id.settingsFragment -> {
                 menu.hideSearch()
                 menu.hideSetting()
+            }
+            R.id.favoriteFragment -> {
+                menu.hideFavorite()
             }
         }
     }
@@ -128,6 +138,9 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.settingsFragment -> {
                 navController.navigate(R.id.settingsFragment)
+            }
+            R.id.favoriteFragment -> {
+                navController.navigate(R.id.favoriteFragment)
             }
         }
         return super.onOptionsItemSelected(item)

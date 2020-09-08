@@ -6,8 +6,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.preference.*
 import com.blank.githubuser.R
+import java.util.*
 
 class SettingsFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
@@ -24,8 +26,10 @@ class SettingsFragment : PreferenceFragmentCompat(),
         val language = Preference(context)
             .apply {
                 key = getString(R.string.language_key)
-                title = getString(R.string.changeLanguage)
+                title = getString(R.string.language_title)
                 intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                summary = Locale.getDefault().displayLanguage
+                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_g_translate)
             }
 
         val languageCategory = PreferenceCategory(context)
@@ -42,6 +46,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
                 summaryOff = getString(R.string.notification_summary_off)
                 summaryOn = getString(R.string.notification_summary_on)
                 title = getString(R.string.notification_title)
+                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_notifications)
             }
 
         val notificationCategory = PreferenceCategory(context)

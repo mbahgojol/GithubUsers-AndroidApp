@@ -41,4 +41,10 @@
     <string name="language_key">language</string>
     <string name="reminder_key">reminder</string>
     <string name="setting">Setting</string>
+    <string name="favorite">Favorite</string>
+    <string name="saveSuccess">User telah ditambahkan kedalam favorite</string>
+    <string name="delUserMsg">User telah dihapus dari favorite</string>
+    <string name="language_title">Select Language</string>
+    <string name="delete">DELETE</string>
+    <string name="undo">UNDO</string>
 </resources>

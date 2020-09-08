@@ -1,5 +1,6 @@
 package com.blank.githubuser.data.repository
 
+import com.blank.githubuser.data.local.db.DbHelperlmpl
 import com.blank.githubuser.data.remote.ApiHelperlmpl
 import com.blank.githubuser.utils.ResultState
 import com.nhaarman.mockito_kotlin.atLeastOnce
@@ -15,12 +16,14 @@ import org.mockito.Mockito
 class GithubRepositoryTest {
 
     var apiHelperlmpl: ApiHelperlmpl? = null
+    var dbHelperlmpl: DbHelperlmpl? = null
     var githubRepository: GithubRepository? = null
 
     @Before
     fun init() {
         apiHelperlmpl = Mockito.mock(ApiHelperlmpl::class.java)
-        githubRepository = GithubRepository(apiHelperlmpl!!)
+        dbHelperlmpl = Mockito.mock(DbHelperlmpl::class.java)
+        githubRepository = GithubRepository(apiHelperlmpl!!, dbHelperlmpl!!)
     }
 
     @Test

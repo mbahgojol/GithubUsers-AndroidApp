@@ -76,4 +76,9 @@
         android:id="@+id/settingsFragment"
         android:name="com.blank.githubuser.ui.setting.SettingsFragment"
         android:label="@string/setting" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.blank.githubuser.ui.favorite.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

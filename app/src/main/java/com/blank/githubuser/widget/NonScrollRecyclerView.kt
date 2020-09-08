@@ -15,5 +15,6 @@ class NonScrollRecyclerView : RecyclerView {
         defStyle
     ) {
         isNestedScrollingEnabled = false
+        setHasFixedSize(true)
     }
 }

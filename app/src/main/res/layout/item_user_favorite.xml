@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.chauthai.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dragEdge="right"
+        app:mode="same_level">
+
+        <LinearLayout
+            android:id="@+id/lyDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDelete"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@color/darkblue"
+                android:fontFamily="@font/roboto_black"
+                android:gravity="center"
+                android:text="@string/delete"
+                android:textColor="@color/orange" />
+
+        </LinearLayout>
+
+        <include layout="@layout/item_user" />
+
+    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+</layout>

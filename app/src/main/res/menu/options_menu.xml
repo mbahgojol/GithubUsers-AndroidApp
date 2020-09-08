@@ -10,9 +10,17 @@
             app:showAsAction="ifRoom" />
     </group>
 
-    <item
-        android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/setting"
-        app:showAsAction="always" />
+    <group android:id="@+id/groupSetting">
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/setting"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/favoriteFragment"
+            android:icon="@drawable/ic_favorite"
+            android:title="@string/setting"
+            app:showAsAction="always" />
+    </group>
 </menu>

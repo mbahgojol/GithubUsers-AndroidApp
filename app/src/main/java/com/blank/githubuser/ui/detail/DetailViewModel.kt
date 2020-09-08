@@ -2,6 +2,7 @@ package com.blank.githubuser.ui.detail
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
+import com.blank.githubuser.data.model.User
 import com.blank.githubuser.data.repository.GithubRepository
 import com.blank.githubuser.ui.base.BaseViewModel
 import com.blank.githubuser.utils.ERROR_NOCONNECTION
@@ -15,6 +16,7 @@ class DetailViewModel @ViewModelInject constructor(
 
     private var resultState: ResultState? = null
     val mutableResultState = MutableLiveData<ResultState>()
+    val resultSaveDb = MutableLiveData<Boolean>()
 
     fun fetchUsers(username: String) {
         val lastResult = resultState
@@ -38,6 +40,20 @@ class DetailViewModel @ViewModelInject constructor(
             }
         } else {
             mutableResultState.value = lastResult
+        }
+    }
+
+    fun saveDb(click: Boolean, user: User) {
+        if (click) {
+            githubRepository.insertDb(user)
+                .subscribe {
+                    resultSaveDb.value = it
+                }.autoDispose()
+        } else {
+            githubRepository.delete(user)
+                .subscribe {
+                    resultSaveDb.value = false
+                }.autoDispose()
         }
     }
 }

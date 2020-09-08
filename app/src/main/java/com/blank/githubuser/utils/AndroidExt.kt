@@ -1,13 +1,17 @@
 package com.blank.githubuser.utils
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.Menu
 import android.view.View
 import android.widget.ImageView
+import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.blank.githubuser.R
 import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 fun ImageView.setImages(url: String) {
     Glide.with(this)
@@ -37,9 +41,31 @@ fun Menu.showSearch() {
 }
 
 fun Menu.showSetting() {
-    findItem(R.id.settingsFragment).isVisible = true
+    setGroupVisible(R.id.groupSetting, true)
 }
 
 fun Menu.hideSetting() {
-    findItem(R.id.settingsFragment).isVisible = false
+    setGroupVisible(R.id.groupSetting, false)
+}
+
+fun Menu.hideFavorite() {
+    findItem(R.id.favoriteFragment).isVisible = false
+}
+
+fun Menu.showFavorite() {
+    findItem(R.id.favoriteFragment).isVisible = true
+}
+
+fun FloatingActionButton.changeColor(click: Boolean) {
+    if (click) {
+        ImageViewCompat.setImageTintList(
+            this,
+            ColorStateList.valueOf(Color.RED)
+        )
+    } else {
+        ImageViewCompat.setImageTintList(
+            this,
+            ColorStateList.valueOf(Color.WHITE)
+        )
+    }
 }
