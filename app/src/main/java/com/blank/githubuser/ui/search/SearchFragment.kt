@@ -11,6 +11,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
+import androidx.transition.Fade
 import com.blank.githubuser.R
 import com.blank.githubuser.ui.base.BaseFragment
 import com.blank.githubuser.ui.search.adapter.SearchAdapter
@@ -31,6 +32,12 @@ class SearchFragment : BaseFragment() {
     @Inject
     lateinit var adapter: SearchAdapter
     private var username = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = Fade()
+        exitTransition = Fade()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

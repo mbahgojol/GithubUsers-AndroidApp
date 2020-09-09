@@ -153,7 +153,8 @@ class MainActivity : AppCompatActivity() {
                 .savedStateHandle
                 .remove<String>(SEARCH_USERS)
         } else if (navController.currentDestination?.id == R.id.detailFragment) {
-            searchView?.onActionViewExpanded()
+            if (navController.previousBackStackEntry?.destination?.id == R.id.searchFragment)
+                searchView?.onActionViewExpanded()
         }
         return navController.navigateUp()
     }

@@ -10,7 +10,6 @@
         app:mode="same_level">
 
         <LinearLayout
-            android:id="@+id/lyDelete"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">

@@ -42,7 +42,7 @@ class MainFragment : BaseFragment() {
             footer = MainLoadStateAdapter(adapter::retry),
             header = MainLoadStateAdapter(adapter::retry)
         )
-        adapter.setListener { user, v ->
+        adapter.clickListener { user, v ->
             val extras = FragmentNavigatorExtras(
                 v[0] to ViewCompat.getTransitionName(v[0]).toString(),
                 v[1] to ViewCompat.getTransitionName(v[1]).toString(),

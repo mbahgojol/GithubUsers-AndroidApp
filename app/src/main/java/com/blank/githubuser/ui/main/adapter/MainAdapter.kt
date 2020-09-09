@@ -30,7 +30,7 @@ class MainAdapter @Inject constructor() : PagingDataAdapter<User, MainViewHolder
 
     private lateinit var listener: (User, viewArray: Array<View>) -> Unit
 
-    fun setListener(listener: (user: User, viewArray: Array<View>) -> Unit) {
+    fun clickListener(listener: (user: User, viewArray: Array<View>) -> Unit) {
         this.listener = listener
     }
 

@@ -2,9 +2,13 @@ package com.blank.githubuser.ui.favorite
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.Fade
 import com.blank.githubuser.R
 import com.blank.githubuser.ui.base.BaseFragment
 import com.blank.githubuser.ui.favorite.adapter.FavoriteAdapter
@@ -17,6 +21,12 @@ import kotlinx.android.synthetic.main.fragment_favorite.*
 class FavoriteFragment : BaseFragment() {
     override fun layoutId(): Int = R.layout.fragment_favorite
     private val viewModel by viewModels<FavoriteViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = Fade()
+        exitTransition = Fade()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,6 +55,16 @@ class FavoriteFragment : BaseFragment() {
                     }).show()
             }
             rvFavorite.adapter = adapter
+            adapter.clickListener { user, v ->
+                val extras = FragmentNavigatorExtras(
+                    v[0] to ViewCompat.getTransitionName(v[0]).toString(),
+                    v[1] to ViewCompat.getTransitionName(v[1]).toString(),
+                    v[2] to ViewCompat.getTransitionName(v[2]).toString()
+                )
+                val action =
+                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(user.login)
+                findNavController().navigate(action, extras)
+            }
         }
         viewModel.fetchAllFavorite()
     }

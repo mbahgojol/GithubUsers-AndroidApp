@@ -8,6 +8,7 @@ import android.provider.Settings
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.preference.*
+import androidx.transition.Fade
 import com.blank.githubuser.R
 import java.util.*
 
@@ -17,6 +18,12 @@ class SettingsFragment : PreferenceFragmentCompat(),
     companion object {
         fun sharedPreferences(context: Context) =
             PreferenceManager.getDefaultSharedPreferences(context)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = Fade()
+        exitTransition = Fade()
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {

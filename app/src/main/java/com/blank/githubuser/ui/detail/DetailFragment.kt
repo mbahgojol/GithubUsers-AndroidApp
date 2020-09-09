@@ -1,16 +1,17 @@
 package com.blank.githubuser.ui.detail
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.transition.Fade
 import com.blank.githubuser.R
 import com.blank.githubuser.data.model.User
 import com.blank.githubuser.ui.base.BaseFragment
 import com.blank.githubuser.utils.*
+import com.blank.githubuser.utils.anim.DetailsTransition
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_detail.*
@@ -24,10 +25,10 @@ class DetailFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-        sharedElementReturnTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition = DetailsTransition()
+        sharedElementReturnTransition = DetailsTransition()
+        enterTransition = Fade()
+        exitTransition = Fade()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

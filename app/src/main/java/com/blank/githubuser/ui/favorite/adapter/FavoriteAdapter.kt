@@ -1,6 +1,7 @@
 package com.blank.githubuser.ui.favorite.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.blank.githubuser.data.model.User
@@ -14,30 +15,11 @@ import kotlinx.android.synthetic.main.item_user.view.*
 
 class FavoriteAdapter(
     private val data: MutableList<User>,
-    private val listener: (User, (User, Int) -> Unit, Int) -> Unit
+    private val listenerDelete: (User, (User, Int) -> Unit, Int) -> Unit
 ) :
     RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
     private val viewBinderHelper = ViewBinderHelper()
-
-    inner class FavoriteViewHolder(
-        val v: ItemUserFavoriteBinding
-    ) :
-        RecyclerView.ViewHolder(v.root) {
-
-        fun bind(
-            user: User,
-            position: Int
-        ) {
-            v.root.ivPhoto.setImages(user.avatarUrl ?: ANONYM_PERSON_ICON)
-            v.root.tvTitle.text = user.name ?: v.root.context.noName()
-            v.root.tvLocation.text = user.location ?: v.root.context.noLocation()
-
-            v.lyDelete.setOnClickListener {
-                removeAt(position)
-                listener(user, this@FavoriteAdapter::add, position)
-            }
-        }
-    }
+    private lateinit var clicklistener: (user: User, viewArray: Array<View>) -> Unit
 
     fun add(user: User, position: Int) {
         data.add(position, user)
@@ -50,6 +32,10 @@ class FavoriteAdapter(
             LayoutInflater.from(parent.context), parent, false
         )
     )
+
+    fun clickListener(listener: (user: User, viewArray: Array<View>) -> Unit) {
+        this.clicklistener = listener
+    }
 
     private fun removeAt(position: Int) {
         data.removeAt(position)
@@ -64,9 +50,39 @@ class FavoriteAdapter(
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val item = data[position]
+        val no_name = holder.itemView.context.noName()
         viewBinderHelper.setOpenOnlyOne(true)
-        viewBinderHelper.bind(holder.v.swipelayout, item.name)
-        viewBinderHelper.closeLayout(item.name)
+        viewBinderHelper.bind(holder.v.swipelayout, item.name ?: no_name)
+        viewBinderHelper.closeLayout(item.name ?: no_name)
         holder.bind(item, position)
+    }
+
+    inner class FavoriteViewHolder(
+        val v: ItemUserFavoriteBinding
+    ) : RecyclerView.ViewHolder(v.root) {
+
+        fun bind(
+            user: User,
+            position: Int
+        ) {
+            v.root.ivPhoto.setImages(user.avatarUrl ?: ANONYM_PERSON_ICON)
+            v.root.tvTitle.text = user.name ?: v.root.context.noName()
+            v.root.tvLocation.text = user.location ?: v.root.context.noLocation()
+
+            v.tvDelete.setOnClickListener {
+                removeAt(position)
+                listenerDelete(user, this@FavoriteAdapter::add, position)
+            }
+
+            v.root.clItemUser.setOnClickListener {
+                clicklistener(
+                    user, arrayOf(
+                        v.root.ivPhoto,
+                        v.root.tvTitle,
+                        v.root.tvLocation
+                    )
+                )
+            }
+        }
     }
 }
