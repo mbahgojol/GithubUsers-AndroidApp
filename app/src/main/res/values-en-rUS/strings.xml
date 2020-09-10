@@ -41,4 +41,6 @@
     <string name="language_title">Select Language</string>
     <string name="delete">DELETE</string>
     <string name="undo">UNDO</string>
+    <string name="reminder_title_notif">Reminder</string>
+    <string name="reminder_msg_notif">Hi, let\'s play together again with us :)</string>
 </resources>

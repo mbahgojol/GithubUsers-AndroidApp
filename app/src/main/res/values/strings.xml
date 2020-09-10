@@ -28,16 +28,18 @@
 
     <string name="notification_header">Notification</string>
     <string name="notification_title">Reminder</string>
-    <string name="notification_summary_off">Daily reminder untuk kembali ke aplikasi yang berjalan pada pukul 09.00 AM</string>
-    <string name="notification_summary_on">Daily reminder aktif pada pukul 09.00 AM</string>
+    <string name="notification_summary_off">Daily reminder to return to running applications at 09.00 AM</string>
+    <string name="notification_summary_on">Daily reminder is active at 09.00 AM</string>
     <string name="language_header">Language</string>
     <string name="language_key">language</string>
     <string name="reminder_key">reminder</string>
     <string name="setting">Settings</string>
     <string name="favorite">Favorite</string>
-    <string name="saveSuccess">User telah ditambahkan kedalam favorite</string>
-    <string name="delUserMsg">User telah dihapus dari favorite</string>
+    <string name="saveSuccess">The user has been added to favorites</string>
+    <string name="delUserMsg">The user has been removed from favorites</string>
     <string name="language_title">Select Language</string>
     <string name="delete">DELETE</string>
     <string name="undo">UNDO</string>
+    <string name="reminder_title_notif">Reminder</string>
+    <string name="reminder_msg_notif">Hi, let\'s play together again with us :)</string>
 </resources>

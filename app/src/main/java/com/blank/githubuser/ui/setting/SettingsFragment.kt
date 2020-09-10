@@ -5,11 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.preference.*
 import androidx.transition.Fade
 import com.blank.githubuser.R
+import com.blank.githubuser.data.service.AlarmReceiver
 import java.util.*
 
 class SettingsFragment : PreferenceFragmentCompat(),
@@ -76,10 +76,21 @@ class SettingsFragment : PreferenceFragmentCompat(),
         preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+        val reminderKey = getString(R.string.reminder_key)
         when (key) {
-            resources.getString(R.string.reminder_key) -> {
-                Log.d("Reminder", sharedPreferences?.getBoolean("reminder", false).toString())
+            reminderKey -> {
+                val isReminder = sharedPreferences.getBoolean(key, false)
+                val alarmReceiver = AlarmReceiver()
+                if (isReminder) {
+                    if (!alarmReceiver.isAlarmOn(requireContext())) alarmReceiver.setRepeatingAlarm(
+                        requireContext()
+                    )
+                } else {
+                    if (alarmReceiver.isAlarmOn(requireContext())) alarmReceiver.cancelAlarm(
+                        requireContext()
+                    )
+                }
             }
         }
     }

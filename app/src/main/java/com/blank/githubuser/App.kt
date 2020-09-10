@@ -7,8 +7,7 @@ import dagger.hilt.android.HiltAndroidApp
 class App : Application()
 
 
-// todo favorite user, kalo sudah ada tidak bisa ditambahkan
-// todo halaman favorite
 // todo reminder alarm manager munculkan notif
 // todo consumer app
+// todo delete pada favorite ga bisa cepat harus menunggu snakbar
 // todo stack widget menampilkan daftar user favorite

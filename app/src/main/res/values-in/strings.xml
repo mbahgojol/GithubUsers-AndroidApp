@@ -40,4 +40,6 @@
     <string name="language_title">Pilih Bahasa</string>
     <string name="delete">HAPUS</string>
     <string name="undo">KEMBALIKAN</string>
+    <string name="reminder_title_notif">Peringatan</string>
+    <string name="reminder_msg_notif">Hi, Yuk main bareng lagi sama kita :)</string>
 </resources>
