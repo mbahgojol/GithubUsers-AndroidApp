@@ -16,7 +16,7 @@ class SettingsFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
 
     companion object {
-        fun sharedPreferences(context: Context) =
+        fun sharedPreferences(context: Context): SharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(context)
     }
 

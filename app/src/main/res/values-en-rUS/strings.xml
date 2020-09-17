@@ -43,4 +43,7 @@
     <string name="undo">UNDO</string>
     <string name="reminder_title_notif">Reminder</string>
     <string name="reminder_msg_notif">Hi, let\'s play together again with us :)</string>
+    <string name="empty_text">Not have favorite user</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

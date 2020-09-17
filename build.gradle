@@ -61,7 +61,12 @@ ext {
     archCoreTestingVersion = "2.1.0"
     jupiterEngineVersion = "5.5.0"
     roomVersion = "2.2.5"
+    work_version = "2.4.0"
 
+    workerManagerDependencies = [
+            "Work"        : "androidx.work:work-runtime-ktx:$work_version",
+            "work_rxjava2": "androidx.work:work-rxjava2:$work_version"
+    ].values()
 
     daggerHiltDependencies = [
             "hilt"        : "com.google.dagger:hilt-android:$hilt_version",

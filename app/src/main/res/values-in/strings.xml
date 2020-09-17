@@ -42,4 +42,7 @@
     <string name="undo">KEMBALIKAN</string>
     <string name="reminder_title_notif">Peringatan</string>
     <string name="reminder_msg_notif">Hi, Yuk main bareng lagi sama kita :)</string>
+    <string name="empty_text">Tidak memiliki user kesukaan</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
