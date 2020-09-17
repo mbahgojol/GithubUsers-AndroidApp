@@ -23,7 +23,6 @@
             android:background="@color/orange"
             android:fontFamily="@font/roboto_black"
             android:gravity="center"
-            android:padding="@dimen/spacing_small"
             android:text="@string/favorite"
             android:textAlignment="center"
             android:textColor="#ffffff"

@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.Fade
 import com.blank.githubuser.R
+import com.blank.githubuser.data.model.User
 import com.blank.githubuser.ui.base.BaseFragment
 import com.blank.githubuser.ui.favorite.adapter.FavoriteAdapter
+import com.blank.githubuser.ui.favorite.widget.refresWidgetFavoriteItem
 import com.blank.githubuser.utils.observe
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,9 +50,20 @@ class FavoriteFragment : BaseFragment() {
                     }.addCallback(object : Snackbar.Callback() {
                         override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                             super.onDismissed(transientBottomBar, event)
-                            if (event == DISMISS_EVENT_TIMEOUT) {
-                                viewModel.deleteFavorite(user)
+                            when (event) {
+                                DISMISS_EVENT_CONSECUTIVE -> {
+                                    deleteUser(user)
+                                }
+
+                                DISMISS_EVENT_TIMEOUT -> {
+                                    deleteUser(user)
+                                }
                             }
+                        }
+
+                        private fun deleteUser(user: User) {
+                            viewModel.deleteFavorite(user)
+                            requireContext().refresWidgetFavoriteItem()
                         }
                     }).show()
             }

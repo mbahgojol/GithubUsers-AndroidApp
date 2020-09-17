@@ -77,3 +77,9 @@ class FavoriteWidget : AppWidgetProvider() {
     override fun onEnabled(context: Context) {}
     override fun onDisabled(context: Context) {}
 }
+
+fun Context.refresWidgetFavoriteItem() {
+    Intent(FavoriteWidget.REFRESh_TO_FAVORITE).apply {
+        sendBroadcast(this)
+    }
+}

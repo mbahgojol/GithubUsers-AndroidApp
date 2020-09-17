@@ -21,7 +21,7 @@ This project using the Architecture Components:
 ## Development Roadmap
 
 - [x] [Kotlin](https://kotlinlang.org/)
-- [ ] [Room](https://developer.android.com/topic/libraries/architecture/room)
+- [x] [Room](https://developer.android.com/topic/libraries/architecture/room)
 - [x] [Lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/lifecycle)
 - [x] [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel)
 - [x] [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
@@ -29,6 +29,7 @@ This project using the Architecture Components:
 - [x] [Navigation](https://developer.android.com/topic/libraries/architecture/navigation)
 - [x] [DataBinding](https://developer.android.com/topic/libraries/data-binding)
 - [ ] [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager/)
+- [x] AlarmManager
 - [ ] [Coroutines](https://developer.android.com/topic/libraries/architecture/coroutines)
 - [ ] [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 - [x] [Retrofit](https://square.github.io/retrofit/)
@@ -48,8 +49,9 @@ This project using the Architecture Components:
 - [x] Search Users
 - [x] List Users
 - [x] Detail Users
-- [x] Change Language
-- [ ] Favorite
+- [x] Favorite
+- [x] Widget Favorite List
+- [x] Settings (Change Language, Reminder)
 - [ ] About
 
 ## License
