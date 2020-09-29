@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Consumer App</string>
+    <string name="imageTransition">ImageTransition</string>
+    <string name="titleTransition">TitleTransition</string>
+    <string name="locationTransition">LocationTransition</string>
+    <string name="no_location">No Location</string>
+    <string name="no_name">No Name</string>
+    <string name="retry">retry</string>
+</resources>

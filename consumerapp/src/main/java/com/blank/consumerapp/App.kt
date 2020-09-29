@@ -1,4 +1,4 @@
-package com.blank.githubuser
+package com.blank.consumerapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

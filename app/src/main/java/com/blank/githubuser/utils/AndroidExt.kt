@@ -52,10 +52,6 @@ fun Menu.hideFavorite() {
     findItem(R.id.favoriteFragment).isVisible = false
 }
 
-fun Menu.showFavorite() {
-    findItem(R.id.favoriteFragment).isVisible = true
-}
-
 fun FloatingActionButton.changeColor(click: Boolean) {
     if (click) {
         ImageViewCompat.setImageTintList(
