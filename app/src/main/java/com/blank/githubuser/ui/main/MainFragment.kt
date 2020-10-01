@@ -48,7 +48,7 @@ class MainFragment : BaseFragment() {
                 v[1] to ViewCompat.getTransitionName(v[1]).toString(),
                 v[2] to ViewCompat.getTransitionName(v[2]).toString()
             )
-            val action = MainFragmentDirections.actionMainFragmentToDetailFragment(user.login)
+            val action = MainFragmentDirections.actionMainFragmentToDetailFragment(user)
             findNavController().navigate(action, extras)
         }
 

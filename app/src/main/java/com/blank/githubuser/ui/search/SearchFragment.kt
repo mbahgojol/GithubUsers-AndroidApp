@@ -54,7 +54,7 @@ class SearchFragment : BaseFragment() {
                 v[2] to ViewCompat.getTransitionName(v[2]).toString()
             )
 
-            val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(user.login)
+            val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(user)
             findNavController().navigate(action, extras)
         }
 

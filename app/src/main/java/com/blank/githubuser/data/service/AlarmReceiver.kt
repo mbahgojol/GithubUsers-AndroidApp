@@ -12,6 +12,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.blank.githubuser.R
+import com.blank.githubuser.ui.MainActivity
 import java.util.*
 
 class AlarmReceiver : BroadcastReceiver() {
@@ -99,6 +100,16 @@ class AlarmReceiver : BroadcastReceiver() {
             builder.setChannelId(CHANNEL_ID)
             notificationManagerCompat.createNotificationChannel(channel)
         }
+
+        val notificationIntent = Intent(context, MainActivity::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP
+                or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        val intent = PendingIntent.getActivity(
+            context, 0,
+            notificationIntent, 0
+        )
+        builder.setAutoCancel(true)
+        builder.setContentIntent(intent)
 
         val notification = builder.build()
         notificationManagerCompat.notify(notifId, notification)

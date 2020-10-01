@@ -52,6 +52,5 @@ class FavoriteContentProvider : ContentProvider() {
             USER -> userDao.loadAllCursor()
             else -> null
         }
-        return null
     }
 }

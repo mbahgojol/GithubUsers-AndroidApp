@@ -36,7 +36,7 @@ class DetailFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val args by navArgs<DetailFragmentArgs>()
-        username = args.username.toString()
+        username = args.user?.login.toString()
 
         val sectionsPagerAdapter = DetailAdapter(requireContext(), username, childFragmentManager)
         viewpager.adapter = sectionsPagerAdapter
@@ -53,6 +53,12 @@ class DetailFragment : BaseFragment() {
             fbSave.changeColor(clickFb)
             data?.let { it1 -> viewModel.saveDb(clickFb, it1) }
             requireContext().refresWidgetFavoriteItem()
+        }
+
+        args.user?.id?.let {
+            viewModel.statusSave(it) { status ->
+                fbSave.changeColor(status)
+            }
         }
     }
 

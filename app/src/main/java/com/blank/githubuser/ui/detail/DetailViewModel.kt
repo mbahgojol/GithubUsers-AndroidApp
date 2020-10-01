@@ -43,6 +43,15 @@ class DetailViewModel @ViewModelInject constructor(
         }
     }
 
+    fun statusSave(id: Int, onSave: (Boolean) -> Unit) {
+        githubRepository.findById(id)
+            .subscribe({
+                onSave(true)
+            }, {
+                onSave(false)
+            }).autoDispose()
+    }
+
     fun saveDb(click: Boolean, user: User) {
         if (click) {
             githubRepository.insertDb(user)

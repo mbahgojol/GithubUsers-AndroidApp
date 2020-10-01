@@ -1,11 +1,14 @@
 package com.blank.githubuser.data.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "User")
+@Parcelize
 data class User(
     @ColumnInfo(name = "login")
     @field:SerializedName("login")
@@ -39,4 +42,4 @@ data class User(
     @ColumnInfo(name = "location")
     @field:SerializedName("location")
     val location: String? = null
-)
+) : Parcelable

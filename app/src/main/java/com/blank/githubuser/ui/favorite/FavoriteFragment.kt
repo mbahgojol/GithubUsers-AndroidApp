@@ -75,7 +75,7 @@ class FavoriteFragment : BaseFragment() {
                     v[2] to ViewCompat.getTransitionName(v[2]).toString()
                 )
                 val action =
-                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(user.login)
+                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(user)
                 findNavController().navigate(action, extras)
             }
         }
