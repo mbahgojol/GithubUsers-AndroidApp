@@ -13,7 +13,7 @@ import com.blank.githubuser.R
 import com.blank.githubuser.data.model.User
 import com.blank.githubuser.ui.base.BaseFragment
 import com.blank.githubuser.ui.favorite.adapter.FavoriteAdapter
-import com.blank.githubuser.ui.favorite.widget.refresWidgetFavoriteItem
+import com.blank.githubuser.ui.favorite.widget.refreshWidgetFavoriteItem
 import com.blank.githubuser.utils.observe
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,7 +63,7 @@ class FavoriteFragment : BaseFragment() {
 
                         private fun deleteUser(user: User) {
                             viewModel.deleteFavorite(user)
-                            requireContext().refresWidgetFavoriteItem()
+                            requireContext().refreshWidgetFavoriteItem()
                         }
                     }).show()
             }

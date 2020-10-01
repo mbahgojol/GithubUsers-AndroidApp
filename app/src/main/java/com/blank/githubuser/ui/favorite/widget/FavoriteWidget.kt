@@ -16,7 +16,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class FavoriteWidget : AppWidgetProvider() {
     companion object {
-        const val REFRESh_TO_FAVORITE = "android.appwidget.action.APPWIDGET_UPDATE"
+        const val REFRESH_TO_FAVORITE = "android.appwidget.action.APPWIDGET_UPDATE"
     }
 
     @Inject
@@ -64,7 +64,7 @@ class FavoriteWidget : AppWidgetProvider() {
         super.onReceive(context, intent)
         if (intent.action != null) {
             when (intent.action) {
-                REFRESh_TO_FAVORITE -> {
+                REFRESH_TO_FAVORITE -> {
                     val appWidgetId = pref.appWidgetId
                     val manager = AppWidgetManager.getInstance(context)
                     manager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.stack_view)
@@ -77,8 +77,8 @@ class FavoriteWidget : AppWidgetProvider() {
     override fun onDisabled(context: Context) {}
 }
 
-fun Context.refresWidgetFavoriteItem() {
-    Intent(FavoriteWidget.REFRESh_TO_FAVORITE).apply {
+fun Context.refreshWidgetFavoriteItem() {
+    Intent(FavoriteWidget.REFRESH_TO_FAVORITE).apply {
         sendBroadcast(this)
     }
 }

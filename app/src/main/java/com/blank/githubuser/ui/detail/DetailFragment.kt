@@ -10,7 +10,7 @@ import androidx.transition.Fade
 import com.blank.githubuser.R
 import com.blank.githubuser.data.model.User
 import com.blank.githubuser.ui.base.BaseFragment
-import com.blank.githubuser.ui.favorite.widget.refresWidgetFavoriteItem
+import com.blank.githubuser.ui.favorite.widget.refreshWidgetFavoriteItem
 import com.blank.githubuser.utils.*
 import com.blank.githubuser.utils.anim.DetailsTransition
 import com.google.android.material.snackbar.Snackbar
@@ -52,7 +52,7 @@ class DetailFragment : BaseFragment() {
             clickFb = !clickFb
             fbSave.changeColor(clickFb)
             data?.let { it1 -> viewModel.saveDb(clickFb, it1) }
-            requireContext().refresWidgetFavoriteItem()
+            requireContext().refreshWidgetFavoriteItem()
         }
 
         args.user?.id?.let {
