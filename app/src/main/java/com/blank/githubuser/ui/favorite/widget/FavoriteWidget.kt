@@ -16,7 +16,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class FavoriteWidget : AppWidgetProvider() {
     companion object {
-        const val ACTION_TO_FAVORITE = "widget_action_extra"
         const val REFRESh_TO_FAVORITE = "android.appwidget.action.APPWIDGET_UPDATE"
     }
 
