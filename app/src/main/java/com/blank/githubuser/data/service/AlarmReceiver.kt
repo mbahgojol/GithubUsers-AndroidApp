@@ -24,7 +24,7 @@ class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val title = context.getString(R.string.reminder_title_notif)
         val msg = intent.getStringExtra(EXTRA_MESSAGE)
-        showAlarmNotif(context, title, msg, ID_REPEATING)
+        showAlarmNotif(context, title, msg)
     }
 
     fun setRepeatingAlarm(context: Context) {
@@ -70,17 +70,16 @@ class AlarmReceiver : BroadcastReceiver() {
     private fun showAlarmNotif(
         context: Context,
         title: String,
-        message: String,
-        notifId: Int
+        message: String
     ) {
-        val CHANNEL_ID = "Channel_1"
-        val CHANNEL_NAME = "AlarmManager Channel"
+        val channelId = "Channel_1"
+        val channelName = "AlarmManager Channel"
 
         val notificationManagerCompat =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+        val builder = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(R.drawable.ic_notifications)
             .setContentTitle(title)
             .setContentText(message)
@@ -90,14 +89,14 @@ class AlarmReceiver : BroadcastReceiver() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                CHANNEL_ID,
-                CHANNEL_NAME,
+                channelId,
+                channelName,
                 NotificationManager.IMPORTANCE_DEFAULT
             )
 
             channel.enableVibration(true)
             channel.vibrationPattern = longArrayOf(1000, 1000, 1000, 1000, 1000)
-            builder.setChannelId(CHANNEL_ID)
+            builder.setChannelId(channelId)
             notificationManagerCompat.createNotificationChannel(channel)
         }
 
@@ -112,6 +111,6 @@ class AlarmReceiver : BroadcastReceiver() {
         builder.setContentIntent(intent)
 
         val notification = builder.build()
-        notificationManagerCompat.notify(notifId, notification)
+        notificationManagerCompat.notify(ID_REPEATING, notification)
     }
 }

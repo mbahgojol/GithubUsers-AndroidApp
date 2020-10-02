@@ -7,7 +7,7 @@ import androidx.transition.TransitionSet
 
 class DetailsTransition : TransitionSet() {
     init {
-        setOrdering(ORDERING_TOGETHER)
+        ordering = ORDERING_TOGETHER
         addTransition(ChangeBounds())
             .addTransition(ChangeTransform())
             .addTransition(ChangeImageTransform())

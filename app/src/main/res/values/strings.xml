@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Github User</string>
     <string name="menu_search">Search</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="changeLanguage">Change language</string>
     <string name="search_hint">Input username</string>
     <string name="retry">retry</string>
     <string name="followers">Followers</string>
@@ -10,8 +8,6 @@
     <string name="repo">Repository</string>
     <string name="no_count">0</string>
     <string name="photo_user">Photo Users Github</string>
-    <string name="long_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec dictum tellus. Nulla ut eros vel purus posuere maximus. Curabitur semper sem sed eros porttitor finibus. Nulla a sollicitudin odio, ut posuere purus. Nullam eu est ac felis tempor porttitor eget sit amet nulla. Maecenas elementum hendrerit risus ut sollicitudin. Nam imperdiet libero finibus purus rutrum cursus. Vivamus varius quis orci sed maximus. Aliquam erat volutpat. Aliquam sed lorem eget nunc rutrum rutrum eu ut leo. Suspendisse ut lacus vulputate, interdum magna in, maximus urna. Donec neque nunc, dignissim sit amet velit ac, pellentesque accumsan justo. Cras porta ac enim efficitur sagittis. Praesent a enim congue, varius leo a, convallis ipsum. Fusce tempor dolor sed egestas efficitur. Nulla facilisi.  Pellentesque sit amet consequat felis. Nam ut velit quam. Fusce eu nisl pellentesque, lobortis dui nec, sollicitudin lorem. Proin sed erat faucibus, congue sem vel, mollis velit. Donec leo mi, porta sit amet odio vitae, commodo rutrum purus. Pellentesque quis mi ex. Fusce sed ultrices tellus. Vestibulum efficitur eu diam non gravida. Quisque eu ex tempor risus tempor consectetur. Integer ac massa sed dui porta volutpat non eu ligula. Praesent maximus, erat ac accumsan tempor, dolor ipsum tempor enim, a luctus sem odio interdum est. Donec in mi tempus, mollis diam non, eleifend ex. Integer sed efficitur odio. Mauris ac leo ut nulla tempor aliquam.  Aliquam gravida tortor et ex luctus viverra. In ac vehicula magna. Integer eu aliquet erat. Fusce non nunc porta, venenatis diam id, faucibus nisl. Aliquam tincidunt tortor sit amet lacus vehicula porttitor. Nullam dapibus nec nibh et accumsan. Pellentesque eros diam, ultricies at velit eget, suscipit commodo leo.  Pellentesque sit amet cursus libero, in feugiat nunc. In varius lacus id lorem egestas, ut eleifend nisl condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque fringilla tortor eget sem fermentum, in dapibus arcu venenatis. Curabitur iaculis neque nec lacus accumsan egestas. Vivamus vitae mauris ut felis finibus interdum ut in lectus. Vestibulum vel lacinia libero. Donec efficitur risus ipsum, eget imperdiet ante tristique sit amet. In luctus tortor a magna sodales tempus. In velit dui, rutrum sed vehicula sed, vulputate ac lacus. Aliquam iaculis neque sed turpis finibus, in tristique enim commodo. Vivamus pretium velit eget turpis gravida, id consectetur lorem sodales. Curabitur porta lorem at ante blandit condimentum. Duis ut elit efficitur, euismod nisi id, consectetur elit. Curabitur ultricies felis non consequat viverra.  Nulla sapien quam, ultrices consectetur laoreet non, mollis sed nunc. Integer lobortis mi lacus, vulputate fermentum magna commodo quis. Maecenas varius fringilla mi, iaculis vehicula diam mollis vitae. Nullam quam mi, maximus in libero at, iaculis condimentum mi. Maecenas vel ante metus. Quisque mauris sapien, gravida a velit vel, rutrum vulputate urna. Sed bibendum aliquet erat, at elementum dui varius non. Quisque in neque at metus laoreet viverra imperdiet non lacus.</string>
-    <string name="error">Error</string>
     <string name="no_internet_conten">No internet connections found. Check your connection or try again</string>
     <string name="woops">Whoops!</string>
     <string name="imageTransition">ImageTransition</string>
@@ -22,7 +18,6 @@
     <string name="detailUsers">Detail Users</string>
     <string name="no_name">No Name</string>
     <string name="no_result">No result</string>
-    <string name="no_following">Has not Following</string>
     <string name="no_followers">Has not Followers</string>
     <string name="try_a_more_general_keyword">Try a more general keyword</string>
 
@@ -42,7 +37,5 @@
     <string name="undo">UNDO</string>
     <string name="reminder_title_notif">Reminder</string>
     <string name="reminder_msg_notif">Hi, let\'s play together again with us :)</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
     <string name="empty_text">Not have favorite user</string>
 </resources>
