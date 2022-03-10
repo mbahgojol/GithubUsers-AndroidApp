@@ -3,16 +3,20 @@ package com.example.githubuserapp.ui.main
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
+import android.view.Menu
+import android.view.MenuItem
 import android.view.ViewTreeObserver
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.githubuserapp.R
 import com.example.githubuserapp.data.model.DetailUserResponse
 import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.ui.detil.DetailActivity
+import com.example.githubuserapp.ui.favorite.FavoriteActivity
+import com.example.githubuserapp.ui.setting.SettingActivity
 import com.example.githubuserapp.utils.KEY_USER
 import com.example.githubuserapp.utils.ResultState
 import com.google.android.material.snackbar.Snackbar
@@ -39,12 +43,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            binding.content.viewTreeObserver.addOnPreDrawListener(object :
+            binding.root.viewTreeObserver.addOnPreDrawListener(object :
                 ViewTreeObserver.OnPreDrawListener {
                 override fun onPreDraw(): Boolean =
                     when {
                         viewModel.mockDataLoading() -> {
-                            binding.content.viewTreeObserver.removeOnPreDrawListener(this)
+                            binding.root.viewTreeObserver.removeOnPreDrawListener(this)
                             true
                         }
                         else -> false
@@ -92,5 +96,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.getUser()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite -> {
+                Intent(this, FavoriteActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+            R.id.setting -> {
+                Intent(this, SettingActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

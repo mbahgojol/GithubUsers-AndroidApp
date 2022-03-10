@@ -8,4 +8,5 @@
     <dimen name="size100dp">100dp</dimen>
     <dimen name="size16dp">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="size20dp">20dp</dimen>
 </resources>

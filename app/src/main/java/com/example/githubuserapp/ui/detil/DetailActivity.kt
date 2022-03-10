@@ -1,6 +1,8 @@
 package com.example.githubuserapp.ui.detil
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import com.example.githubuserapp.R
 import com.example.githubuserapp.data.model.DetailUserResponse
 import com.example.githubuserapp.databinding.ActivityDetailBinding
 import com.example.githubuserapp.ui.detil.follow.FollowsFragment
+import com.example.githubuserapp.ui.setting.SettingActivity
 import com.example.githubuserapp.utils.*
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -26,7 +29,6 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         val user = intent.getParcelableExtra<DetailUserResponse>(KEY_USER)
 
@@ -84,10 +86,20 @@ class DetailActivity : AppCompatActivity() {
         viewModel.getFollowing(user?.login.toString())
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.detail_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
                 finish()
+            }
+            R.id.setting -> {
+                Intent(this, SettingActivity::class.java).apply {
+                    startActivity(this)
+                }
             }
         }
         return super.onOptionsItemSelected(item)

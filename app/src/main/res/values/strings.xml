@@ -16,4 +16,8 @@
     <string name="followers">Followers</string>
     <string name="repository">Repository</string>
     <string name="image">image</string>
+    <string name="setting">Setting</string>
+    <string name="favorite">Favorite</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

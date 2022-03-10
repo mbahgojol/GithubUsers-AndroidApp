@@ -13,6 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:exported="false"
+            android:label="@string/favorite" />
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:exported="false"
+            android:label="@string/setting" />
+        <activity
             android:name=".ui.detil.DetailActivity"
             android:exported="false"
             android:label="Detail User" />
