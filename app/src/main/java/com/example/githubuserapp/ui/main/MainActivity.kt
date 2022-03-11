@@ -3,6 +3,7 @@ package com.example.githubuserapp.ui.main
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewTreeObserver
@@ -12,7 +13,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
-import com.example.githubuserapp.data.model.DetailUserResponse
+import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.ActivityMainBinding
 import com.example.githubuserapp.ui.detil.DetailActivity
 import com.example.githubuserapp.ui.favorite.FavoriteActivity
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.resultStateUser.observe(this) {
             when (it) {
                 is ResultState.Success<*> -> {
-                    val data = it.data as MutableList<DetailUserResponse>
+                    val data = it.data as MutableList<User>
                     adapter.submitList(data)
                 }
                 is ResultState.Error -> {
@@ -88,6 +89,7 @@ class MainActivity : AppCompatActivity() {
                         viewModel.getUser(myQuery)
                     }
                     snackbar.show()
+                    Log.e("Error", it.e.message.toString())
                 }
                 is ResultState.Loading -> {
                     binding.progresbar.isVisible = it.loading

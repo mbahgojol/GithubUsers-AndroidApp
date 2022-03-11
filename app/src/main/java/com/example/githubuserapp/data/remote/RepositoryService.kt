@@ -1,6 +1,6 @@
 package com.example.githubuserapp.data.remote
 
-import com.example.githubuserapp.data.model.DetailUserResponse
+import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.data.model.FollowListResponse
 import com.example.githubuserapp.data.model.UserGithubResponse
 import retrofit2.http.GET
@@ -20,7 +20,7 @@ interface RepositoryService {
     suspend fun detailUser(
         @Header("Authorization") token: String,
         @Path("username") username: String
-    ): DetailUserResponse
+    ): User
 
     @JvmSuppressWildcards
     @GET("users/{username}/followers")

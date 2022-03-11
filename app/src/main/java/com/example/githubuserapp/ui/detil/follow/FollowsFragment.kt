@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.githubuserapp.data.model.DetailUserResponse
+import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.FragmentFollowsBinding
 import com.example.githubuserapp.ui.detil.DetailActivity
 import com.example.githubuserapp.ui.detil.DetailViewModel
@@ -65,7 +65,7 @@ class FollowsFragment : Fragment() {
     private fun manageResultFollows(state: ResultState) {
         when (state) {
             is ResultState.Success<*> -> {
-                val data = state.data as MutableList<DetailUserResponse>
+                val data = state.data as MutableList<User>
                 adapter.submitList(data)
             }
             is ResultState.Error -> {

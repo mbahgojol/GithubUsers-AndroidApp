@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import coil.transform.CircleCropTransformation
 import com.example.githubuserapp.R
-import com.example.githubuserapp.data.model.DetailUserResponse
+import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.ActivityDetailBinding
 import com.example.githubuserapp.ui.detil.follow.FollowsFragment
 import com.example.githubuserapp.ui.setting.SettingActivity
@@ -30,10 +30,38 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val user = intent.getParcelableExtra<DetailUserResponse>(KEY_USER)
+        val user = intent.getParcelableExtra<User>(KEY_USER)
 
-        binding.ivFoto.loadImg(user?.avatarUrl) {
+        binding.ivFoto.loadImg(user?.avatar_url) {
             transformations(CircleCropTransformation())
+        }
+
+        binding.btnFavorite.setOnClickListener {
+            viewModel.setFavorite(user)
+        }
+
+        viewModel.resultDeleteFavorite.observe(this) {
+            if (it) {
+                binding.btnFavorite.changeIconColor(R.color.white)
+            } else {
+                binding.root.showSnakBar(getString(R.string.gagalDelete))
+            }
+        }
+
+        viewModel.resultAddFavorite.observe(this) {
+            if (it) {
+                binding.btnFavorite.changeIconColor(R.color.red)
+            } else {
+                binding.root.showSnakBar(getString(R.string.gagalFavorite))
+            }
+        }
+
+        viewModel.findById(user?.id) {
+            if (it) {
+                binding.btnFavorite.changeIconColor(R.color.red)
+            } else {
+                binding.btnFavorite.changeIconColor(R.color.white)
+            }
         }
 
         binding.tvFollowers.text =
@@ -43,7 +71,7 @@ class DetailActivity : AppCompatActivity() {
         binding.tvFollowing.text = text(user?.following)
             .space()
             .append(getString(R.string.following))
-        binding.tvRepositori.text = text(user?.publicRepos)
+        binding.tvRepositori.text = text(user?.public_repos)
             .space()
             .append(getString(R.string.repository))
         binding.tvTitle.text = user?.name

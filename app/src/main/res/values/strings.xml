@@ -20,4 +20,6 @@
     <string name="favorite">Favorite</string>
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="gagalDelete">Gagal Delete Favorite</string>
+    <string name="gagalFavorite">Gagal Tambah Favorite</string>
 </resources>
