@@ -105,4 +105,7 @@ dependencies {
     implementation "androidx.room:room-rxjava3:$room_version"
 
     testImplementation "androidx.room:room-testing:$room_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.mockito:mockito-core:3.4.0"
 }
