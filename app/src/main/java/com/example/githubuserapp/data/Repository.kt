@@ -1,5 +1,6 @@
 package com.example.githubuserapp.data
 
+import androidx.lifecycle.LiveData
 import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.utils.ResultState
 import kotlinx.coroutines.flow.Flow
@@ -12,4 +13,5 @@ interface Repository {
     fun addFavorite(user: User): Flow<Boolean>
     fun deleteFavorite(user: User): Flow<Boolean>
     fun findById(id: Int): Flow<Boolean>
+    fun listUser(): LiveData<MutableList<User>>
 }

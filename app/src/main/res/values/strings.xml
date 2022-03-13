@@ -22,4 +22,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="gagalDelete">Gagal Delete Favorite</string>
     <string name="gagalFavorite">Gagal Tambah Favorite</string>
+    <string name="defaultJsonAnim">https://assets8.lottiefiles.com/packages/lf20_atxkdesj.json</string>
 </resources>

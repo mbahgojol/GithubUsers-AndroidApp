@@ -1,5 +1,6 @@
 package com.example.githubuserapp.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.githubuserapp.data.model.User
 
@@ -9,7 +10,7 @@ interface UserDao {
     fun insert(user: User)
 
     @Query("SELECT * FROM User")
-    fun loadAll(): MutableList<User>
+    fun loadAll(): LiveData<MutableList<User>>
 
     @Query("SELECT * FROM User WHERE id LIKE :id LIMIT 1")
     fun findById(id: Int): User

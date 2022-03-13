@@ -1,5 +1,6 @@
 package com.example.githubuserapp.data
 
+import androidx.lifecycle.LiveData
 import com.example.githubuserapp.BuildConfig
 import com.example.githubuserapp.data.local.UserDao
 import com.example.githubuserapp.data.model.User
@@ -118,4 +119,6 @@ class RepositoryImpl constructor(
             throw e
         }
     }.flowOn(Dispatchers.IO)
+
+    override fun listUser(): LiveData<MutableList<User>> = dao.loadAll()
 }

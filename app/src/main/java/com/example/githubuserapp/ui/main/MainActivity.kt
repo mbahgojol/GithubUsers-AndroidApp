@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                 is ResultState.Success<*> -> {
                     val data = it.data as MutableList<User>
                     adapter.submitList(data)
+                    binding.animationView.isVisible = data.isNullOrEmpty()
                 }
                 is ResultState.Error -> {
                     val snackbar = Snackbar.make(
