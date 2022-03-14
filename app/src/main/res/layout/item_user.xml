@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/size5dp"
-        android:text="10"
+        tools:text="@tools:sample/lorem"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintBottom_toBottomOf="@id/ivCode"
         app:layout_constraintStart_toEndOf="@id/ivCode"

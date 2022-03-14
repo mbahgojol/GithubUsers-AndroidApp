@@ -14,10 +14,10 @@ class UserAdapter(
     private val onClick: (User) -> Unit
 ) : ListAdapter<User, UserAdapter.ViewHolder>(REPO_COMPARATOR) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.ViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(ItemUserBinding.inflate(LayoutInflater.from(parent.context)))
 
-    override fun onBindViewHolder(holder: UserAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = currentList[position]
         holder.onBind(item)
         holder.itemView.setOnClickListener {

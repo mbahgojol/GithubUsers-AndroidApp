@@ -14,4 +14,6 @@ interface Repository {
     fun deleteFavorite(user: User): Flow<Boolean>
     fun findById(id: Int): Flow<Boolean>
     fun listUser(): LiveData<MutableList<User>>
+    fun getThemeSetting(): Flow<Boolean>
+    suspend fun saveThemeSetting(isDarkModeActive: Boolean)
 }

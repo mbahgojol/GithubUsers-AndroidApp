@@ -95,12 +95,12 @@
         android:id="@+id/tvRepositori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20 Repository"
         app:layout_constraintBottom_toBottomOf="@id/ivRepositori"
         app:layout_constraintEnd_toStartOf="@+id/ivFollowing"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivRepositori"
-        app:layout_constraintTop_toTopOf="@id/ivRepositori" />
+        app:layout_constraintTop_toTopOf="@id/ivRepositori"
+        tools:text="@tools:sample/last_names" />
 
     <ImageView
         android:id="@+id/ivFollowing"
@@ -118,12 +118,12 @@
         android:id="@+id/tvFollowing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20 Following"
         app:layout_constraintBottom_toBottomOf="@id/ivFollowing"
         app:layout_constraintEnd_toStartOf="@+id/ivFollowers"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivFollowing"
-        app:layout_constraintTop_toTopOf="@id/ivFollowing" />
+        app:layout_constraintTop_toTopOf="@id/ivFollowing"
+        tools:text="@tools:sample/last_names" />
 
     <ImageView
         android:id="@+id/ivFollowers"
@@ -141,12 +141,12 @@
         android:id="@+id/tvFollowers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20 Followers"
         app:layout_constraintBottom_toBottomOf="@id/ivFollowers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivFollowers"
-        app:layout_constraintTop_toTopOf="@id/ivFollowers" />
+        app:layout_constraintTop_toTopOf="@id/ivFollowers"
+        tools:text="@tools:sample/last_names" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -175,6 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size20dp"
+        android:contentDescription="TODO"
         android:src="@drawable/ic_favorite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

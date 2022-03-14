@@ -6,6 +6,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.githubuserapp.BuildConfig
 import com.example.githubuserapp.data.Repository
 import com.example.githubuserapp.data.RepositoryImpl
+import com.example.githubuserapp.data.local.SettingPreferences
 import com.example.githubuserapp.data.local.UserDao
 import com.example.githubuserapp.data.remote.RepositoryService
 import dagger.Module
@@ -63,6 +64,10 @@ object NetworkModule {
         retrofit.create<RepositoryService>()
 
     @Provides
-    fun provideRepository(service: RepositoryService, userDao: UserDao): Repository =
-        RepositoryImpl(service, userDao)
+    fun provideRepository(
+        service: RepositoryService,
+        userDao: UserDao,
+        preferences: SettingPreferences
+    ): Repository =
+        RepositoryImpl(service, userDao, preferences)
 }

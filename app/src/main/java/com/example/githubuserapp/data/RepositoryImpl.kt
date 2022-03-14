@@ -2,6 +2,7 @@ package com.example.githubuserapp.data
 
 import androidx.lifecycle.LiveData
 import com.example.githubuserapp.BuildConfig
+import com.example.githubuserapp.data.local.SettingPreferences
 import com.example.githubuserapp.data.local.UserDao
 import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.data.remote.RepositoryService
@@ -15,7 +16,8 @@ import kotlinx.coroutines.withContext
 
 class RepositoryImpl constructor(
     private val service: RepositoryService,
-    private val dao: UserDao
+    private val dao: UserDao,
+    private val pref: SettingPreferences
 ) : Repository {
 
     override fun searchUser(options: Map<String, Any>): Flow<ResultState> = flow {
@@ -121,4 +123,7 @@ class RepositoryImpl constructor(
     }.flowOn(Dispatchers.IO)
 
     override fun listUser(): LiveData<MutableList<User>> = dao.loadAll()
+    override fun getThemeSetting(): Flow<Boolean> = pref.getThemeSetting()
+    override suspend fun saveThemeSetting(isDarkModeActive: Boolean) =
+        pref.saveThemeSetting(isDarkModeActive)
 }

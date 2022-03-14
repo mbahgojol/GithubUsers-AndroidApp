@@ -3,6 +3,7 @@ package com.example.githubuserapp.di
 import android.content.Context
 import androidx.room.Room
 import com.example.githubuserapp.data.local.AppDb
+import com.example.githubuserapp.data.local.SettingPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,4 +22,8 @@ object DbModule {
 
     @Provides
     fun provideUserDao(appDb: AppDb) = appDb.daoUser()
+
+    @Provides
+    fun providePref(@ApplicationContext appContext: Context): SettingPreferences =
+        SettingPreferences(appContext)
 }

@@ -23,4 +23,7 @@
     <string name="gagalDelete">Gagal Delete Favorite</string>
     <string name="gagalFavorite">Gagal Tambah Favorite</string>
     <string name="defaultJsonAnim">https://assets8.lottiefiles.com/packages/lf20_atxkdesj.json</string>
+    <string name="thmeJsonAnim">https://assets6.lottiefiles.com/packages/lf20_8xotm7cc.json</string>
+    <string name="lightTheme">Light Theme</string>
+    <string name="darkTheme">Dark Theme</string>
 </resources>
