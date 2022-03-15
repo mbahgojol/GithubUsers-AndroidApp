@@ -26,4 +26,6 @@
     <string name="thmeJsonAnim">https://assets6.lottiefiles.com/packages/lf20_8xotm7cc.json</string>
     <string name="lightTheme">Light Theme</string>
     <string name="darkTheme">Dark Theme</string>
+    <string name="button_favorite">button favorite</string>
+    <string name="image_splashscreen">image splashscreen</string>
 </resources>

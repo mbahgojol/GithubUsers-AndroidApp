@@ -22,7 +22,7 @@ class DetailViewModel @Inject constructor(private val repository: Repository) : 
 
     private val param = mapOf<String, Any>(
         "page" to 1,
-        "per_page" to 1
+        "per_page" to 30
     )
 
     fun findById(id: Int?, listener: (Boolean) -> Unit) {

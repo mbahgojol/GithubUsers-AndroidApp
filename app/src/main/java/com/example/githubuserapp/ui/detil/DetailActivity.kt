@@ -32,84 +32,86 @@ class DetailActivity : AppCompatActivity() {
 
         val user = intent.getParcelableExtra<User>(KEY_USER)
 
-        binding.ivFoto.loadImg(user?.avatar_url) {
-            transformations(CircleCropTransformation())
-        }
-
-        binding.btnFavorite.setOnClickListener {
-            viewModel.setFavorite(user)
-        }
-
-        viewModel.resultDeleteFavorite.observe(this) {
-            if (it) {
-                binding.btnFavorite.changeIconColor(R.color.white)
-            } else {
-                binding.root.showSnakBar(getString(R.string.gagalDelete))
+        binding.apply {
+            ivFoto.loadImg(user?.avatar_url) {
+                transformations(CircleCropTransformation())
             }
-        }
 
-        viewModel.resultAddFavorite.observe(this) {
-            if (it) {
-                binding.btnFavorite.changeIconColor(R.color.red)
-            } else {
-                binding.root.showSnakBar(getString(R.string.gagalFavorite))
+            btnFavorite.setOnClickListener {
+                viewModel.setFavorite(user)
             }
-        }
 
-        viewModel.findById(user?.id) {
-            if (it) {
-                binding.btnFavorite.changeIconColor(R.color.red)
-            } else {
-                binding.btnFavorite.changeIconColor(R.color.white)
-            }
-        }
-
-        binding.tvFollowers.text =
-            text(user?.followers)
-                .space()
-                .append(getString(R.string.followers))
-        binding.tvFollowing.text = text(user?.following)
-            .space()
-            .append(getString(R.string.following))
-        binding.tvRepositori.text = text(user?.public_repos)
-            .space()
-            .append(getString(R.string.repository))
-        binding.tvTitle.text = user?.name
-        binding.tvLocation.text = user?.location ?: NoLocation
-        binding.tvCompany.text = user?.company ?: NoCompany
-        binding.tvUsername.text = text("@").append(user?.login)
-
-        val fragments = mutableListOf<Fragment>(
-            FollowsFragment.newInstances(FollowsFragment.FOLLOWING),
-            FollowsFragment.newInstances(FollowsFragment.FOLLOWERS)
-        )
-        val fragmentsTitle =
-            mutableListOf(getString(R.string.following), getString(R.string.followers))
-        val adapter = DetailAdapter(this, fragments)
-
-        binding.pager.adapter = adapter
-        TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
-            tab.text = fragmentsTitle[position]
-        }.attach()
-
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                if (tab?.position == FollowsFragment.FOLLOWERS) {
-                    viewModel.getFollowers(user?.login.toString())
+            viewModel.resultDeleteFavorite.observe(this@DetailActivity) {
+                if (it) {
+                    btnFavorite.changeIconColor(R.color.white)
                 } else {
-                    viewModel.getFollowing(user?.login.toString())
+                    root.showSnakBar(getString(R.string.gagalDelete))
                 }
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
+            viewModel.resultAddFavorite.observe(this@DetailActivity) {
+                if (it) {
+                    btnFavorite.changeIconColor(R.color.red)
+                } else {
+                    root.showSnakBar(getString(R.string.gagalFavorite))
+                }
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
+            viewModel.findById(user?.id) {
+                if (it) {
+                    btnFavorite.changeIconColor(R.color.red)
+                } else {
+                    btnFavorite.changeIconColor(R.color.white)
+                }
             }
 
-        })
+            tvFollowers.text =
+                text(user?.followers)
+                    .space()
+                    .append(getString(R.string.followers))
+            tvFollowing.text = text(user?.following)
+                .space()
+                .append(getString(R.string.following))
+            tvRepositori.text = text(user?.public_repos)
+                .space()
+                .append(getString(R.string.repository))
+            tvTitle.text = user?.name
+            tvLocation.text = user?.location ?: NoLocation
+            tvCompany.text = user?.company ?: NoCompany
+            tvUsername.text = text("@").append(user?.login)
+
+            val fragments = mutableListOf<Fragment>(
+                FollowsFragment.newInstances(FollowsFragment.FOLLOWING),
+                FollowsFragment.newInstances(FollowsFragment.FOLLOWERS)
+            )
+            val fragmentsTitle =
+                mutableListOf(getString(R.string.following), getString(R.string.followers))
+            val adapter = DetailAdapter(this@DetailActivity, fragments)
+
+            pager.adapter = adapter
+            TabLayoutMediator(tabLayout, pager) { tab, position ->
+                tab.text = fragmentsTitle[position]
+            }.attach()
+
+            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    if (tab?.position == FollowsFragment.FOLLOWERS) {
+                        viewModel.getFollowers(user?.login.toString())
+                    } else {
+                        viewModel.getFollowing(user?.login.toString())
+                    }
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+
+                }
+
+            })
+        }
 
         viewModel.getFollowing(user?.login.toString())
     }

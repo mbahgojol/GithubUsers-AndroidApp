@@ -93,10 +93,11 @@ class MainActivity : AppCompatActivity() {
                     val snackbar = Snackbar.make(
                         binding.root,
                         it.e.message.toString(),
-                        Snackbar.LENGTH_SHORT
+                        Snackbar.LENGTH_INDEFINITE
                     )
                     snackbar.setAction("RETRY") {
                         viewModel.getUser(myQuery)
+                        snackbar.dismiss()
                     }
                     snackbar.show()
                     Log.e("Error", it.e.message.toString())
