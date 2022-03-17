@@ -19,7 +19,7 @@ class MainViewModel @Inject constructor(private val repository: Repository) : Vi
         val param = mapOf<String, Any>(
             "q" to username,
             "page" to 1,
-            "per_page" to 30
+            "per_page" to 1
         )
 
         viewModelScope.launch {

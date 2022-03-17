@@ -9,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import by.kirich1409.viewbindingdelegate.CreateMethod
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.FragmentFollowsBinding
 import com.example.githubuserapp.ui.detil.DetailActivity
@@ -20,7 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class FollowsFragment : Fragment() {
 
-    private lateinit var binding: FragmentFollowsBinding
+    private val binding by viewBinding<FragmentFollowsBinding>(CreateMethod.INFLATE)
     private val viewModel by activityViewModels<DetailViewModel>()
     private var type = 0
     private val adapter by lazy {
@@ -35,10 +37,7 @@ class FollowsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentFollowsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ): View = binding.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

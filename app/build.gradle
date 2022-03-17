@@ -45,6 +45,10 @@ android {
 }
 
 dependencies {
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
+
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.3'
+
     def lifecycle_version = "2.5.0-alpha04"
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
