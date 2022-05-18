@@ -47,4 +47,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="rvMain,searchView" />
+
+    <include
+        android:id="@+id/isplash"
+        layout="@layout/splashscreen_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

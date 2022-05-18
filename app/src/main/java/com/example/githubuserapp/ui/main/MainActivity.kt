@@ -3,6 +3,7 @@ package com.example.githubuserapp.ui.main
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -56,6 +57,15 @@ class MainActivity : AppCompatActivity() {
                         else -> false
                     }
             })
+        } else {
+            supportActionBar?.hide()
+            binding.content.isVisible = false
+            binding.isplash.splashLayout.isVisible = true
+            Handler(mainLooper).postDelayed({
+                supportActionBar?.show()
+                binding.content.isVisible = true
+                binding.isplash.splashLayout.isVisible = false
+            }, 3000)
         }
 
         viewModel.getThemeSettings().observe(this) {
